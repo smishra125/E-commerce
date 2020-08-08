@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+</head>
+<body>
+    {% block content %}
+    <h2>Here is the list of items</h2>
+
+    {% for item in items %}
+        {{ item }}
+    {% endfor %}
+    {% endblock content %}
+</body>
+</html>
+
+
