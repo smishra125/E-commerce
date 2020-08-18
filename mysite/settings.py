@@ -20,7 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'zeg-5bks5xk!#5a!nu=s40rs%0-h_z(t*@c^^r!ls!h0r9e49)'
-STRIPE_SECRET_KEY = 'zeg-5bks5xk!#5a!nu=s40rs%0-h_z(t*@c^^r!ls!h0r9e49)'
+STRIPE_SECRET_KEY = 'sk_test_51HEC3GAcXwUMF4wF8mXAbWs5LNEbOLVRLGIXNUBEZzgHbAibbr2uAAL2OTw4lDfiF2nF3XnzvFA7zJqNnCiRuQ6700pxhhdt6E'
+STRIPE_PUBLIC_KEY = 'pk_test_51HEC3GAcXwUMF4wFWoXXEKHr5CIur54YEpU9omRP4yQuGNaE5yCfIbrkH9baIcpaVIipOgk0pOjQnYeSjD7uGQwl00EzJOBGIK'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,11 +48,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'django_countries',
-    # 'cart',
+    'debug_toolbar',
     'core'
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,7 +76,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'cart.context_processor.cart_total_amount'
             ],
         },
     },
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -131,8 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# CART_SESSION_ID = 'cart'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
@@ -145,11 +146,12 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+# STATICFILES_DIRS = [
+#     STATIC_DIR,
+# ]
 
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

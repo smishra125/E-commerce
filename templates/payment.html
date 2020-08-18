@@ -101,7 +101,7 @@ button:hover {
 
 {% block content %}
 
-  <main >
+ <main >
     <div class="container wow fadeIn">
 
       <h2 class="my-5 h2 text-center">Payment</h2>
@@ -126,6 +126,7 @@ button:hover {
             </div>
 
           </div>
+        </div>
 
         {% include "order_snippet.html" %}
 
@@ -140,8 +141,8 @@ button:hover {
 
 <script src="https://js.stripe.com/v3/"></script>
 <script nonce="">  // Create a Stripe client.
-  var stripe = Stripe('{{STRIPE_PUBLIC_KEY}}');
-
+<!--  var stripe = Stripe('{{STRIPE_PUBLIC_KEY}}');-->
+    var stripe = Stripe('pk_test_51HEC3GAcXwUMF4wFWoXXEKHr5CIur54YEpU9omRP4yQuGNaE5yCfIbrkH9baIcpaVIipOgk0pOjQnYeSjD7uGQwl00EzJOBGIK');
   // Create an instance of Elements.
   var elements = stripe.elements();
 
